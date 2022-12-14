@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.container form input {
+  border: 1px solid black;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+}
+
+.display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  margin-top: 2rem;
+}
+
+.display div {
+  --h: 15px;
+  --w: 30px;
+  --p: 20%;
+  padding: 2rem;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    /* [1],[2] */ 100% calc(100% - var(--h)),
+    /* [3] */ calc(var(--p) - var(--w) / 2) calc(100% - var(--h)),
+    /* [4] */ var(--p) 100%,
+    /* [5] */ calc(var(--p) + var(--w) / 2) calc(100% - var(--h)),
+    /* [6] */ 0 calc(100% - var(--h)) /* [7] */
+  );
+}
